@@ -84,8 +84,9 @@ namespace uClicker
             foreach (Currency currency in Config.Currencies)
             {
                 float amount = PerSecondAmount(currency);
-
-                updated = UpdateTotal(currency, amount);
+                bool currencyUpdated = UpdateTotal(currency, amount);
+                if (currencyUpdated)
+                    updated = true;
             }
 
             UpdateUnlocks();
